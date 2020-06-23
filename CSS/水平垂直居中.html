@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100%;
+            height:200px;
+            background-color: #73DE80;
+            position:relative;
+            margin-bottom: 20px;
+        }
+        #center1{
+            width:100px;
+            height:100px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            background-color: #F31264;
+        }
+        #center2{
+            width: 100px;
+            height:100px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin: -50px 0 0 -50px;
+            background-color: #F31264;
+        }
+        #center3{
+            position:absolute;
+            width: 100px;
+            height: 100px;
+            margin:auto;
+            top:0;
+            bottom:0;
+            left:0;
+            right: 0;
+            background-color: #F31264;
+        }
+        #flexBox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height:200px;
+            background-color: #73DE80;
+        }
+        #center4{
+            width: 100px;
+            height: 100px;
+            background-color: #F31264;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="center1"></div>
+    </div>
+    <div class="box">
+        <div id="center2"></div>
+    </div>
+    <div class="box">
+        <div id="center3"></div>
+    </div>
+    <div id="flexBox">
+        <div id="center4"></div>
+    </div>
+</body>
+</html>

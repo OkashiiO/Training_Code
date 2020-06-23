@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        setTimeout(()=>console.log('1',a));
+        new Promise(resolve => resolve()).then(
+            ()=>console.log('2',a)
+        );
+        console.log('3',a);
+        var a='haha';
+        console.log('4',a);
+        function a(){};
+    </script>
+<!--    等同于-->
+    <script>
+        console.log("............");
+        function a(){};
+        setTimeout(()=>console.log('1',a));
+        new Promise(resolve => resolve()).then(
+            ()=>console.log('2',a)
+        );
+        console.log('3',a);
+        a='haha';
+        console.log('4',a);
+        console.log("............");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

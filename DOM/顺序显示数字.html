@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div>
+    <ul id="list"></ul>
+</div>
+<script>
+    var container = document.getElementById('list');
+    for (var i = 0; i < 100; i++) {
+        var item = document.createElement('li');
+        item.innerText = i;
+        // item.addEventListener('click',function(){
+        //     alert(this.innerText);
+        // })
+        container.appendChild(item);
+    }
+    container.addEventListener('click',function (e) {
+        const target = e.target;
+        if(target.tagName == 'LI'){
+            alert(target.innerHTML);
+        }
+
+    })
+</script>
+</body>
+</html>

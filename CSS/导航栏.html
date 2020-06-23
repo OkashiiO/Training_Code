@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        #nav{
+            width: 600px;
+            height: 40px;
+            background: gray;
+            margin: 0 auto;
+        }
+        #nav li{
+            line-height: 40px;
+            float: left;
+            list-style: none;
+            height: 40px;
+            position: relative;
+        }
+        #nav a{
+            padding: 0 20px;
+            color: black;
+            display: block;
+            text-decoration: none;
+            height: 40px;
+        }
+        #nav a:hover{
+            background: #058;
+            color:white;
+        }
+        #nav li ul{
+
+            display: none;
+            position: absolute;
+            top: 40px;
+            left:0px;
+        }
+        #nav li ul li{
+            float: none;
+            margin: 2px;
+            width:100px;
+            text-align: center;
+        }
+        #nav li ul li a{
+            background: #ccc;
+        }
+        #nav li ul li a:hover{
+            background: deeppink;
+        }
+        #nav li:hover ul{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<ul id="nav">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">肉类</a>
+        <ul>
+            <li><a href="#">牛肉</a></li>
+            <li><a href="#">猪肉</a></li>
+            <li><a href="#">鸡肉</a></li>
+        </ul>
+    </li>
+    <li><a href="#">水果</a>
+        <ul>
+            <li><a href="#">西瓜</a></li>
+            <li><a href="#">香蕉</a></li>
+            <li><a href="#">苹果</a></li>
+        </ul>
+    </li>
+    <li><a href="#">零食</a></li>
+    <li><a href="#">蔬菜</a>
+        <ul>
+            <li><a href="#">白菜</a></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

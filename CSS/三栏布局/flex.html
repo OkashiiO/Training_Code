@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #container{
+        display:flex;
+        flex-direction:row;
+        height:100px;
+    }
+    #left{
+        width:100px;
+        order:1;
+        background-color: darkblue;
+    }
+    #mid{
+        flex: 1;
+        order:2;
+        background-color: #73DE80;
+    }
+    #right{
+        width: 200px;
+        order: 3;
+        background-color: darkgoldenrod;
+    }
+
+</style>
+<body>
+<div>
+    <div id="container">
+        <div id="left"></div>
+        <div id="mid"></div>
+        <div id="right"></div>
+    </div>
+</div>
+</body>
+</html>

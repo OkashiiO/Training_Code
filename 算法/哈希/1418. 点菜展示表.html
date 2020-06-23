@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var displayTable = function(orders) {
+            let showOrders = [];
+            let tableMap = new Map();
+            let foodSet = new Set();
+
+            for(let order of orders){
+                let [name, tableId, foodId] = order;
+                if(tableMap.has(tableId)){
+                    let map = tableMap.get(tableId);
+                    if(map.has(foodId)){
+                        map.set(foodId, map.get(foodId) + 1);
+                    }else{
+                        map.set(foodId,1);
+                    }
+                    tableMap.set(tableId, map);
+                }else{
+                    let map = new Map();
+                    map.set(foodId, 1);
+                    tableMap.set(tableId,map);
+                }
+                foodSet.add(foodId);
+            }
+
+            let foodArr = [...foodSet].sort();
+            showOrders.push(['Table',...foodArr]);
+            let ordersList = [];
+            for(let [tableId, map] of tableMap){
+                let item = [tableId];
+                for(let foodId of showOrders[0].slice(1)){
+                    item.push(map.has(foodId)? map.get(foodId)+'':'0');
+                }
+                ordersList.push(item);
+            }
+            ordersList.sort((a,b)=>a[0]-b[0]);
+            showOrders.push(...ordersList);
+            return showOrders;
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

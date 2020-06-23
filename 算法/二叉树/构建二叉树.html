@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        var objCount,memberCount,Di=[],Pi={};
+        var list = readline().split(" ");
+        objCount = parseInt(list[0]);
+        memberCount = parseInt(list[1]);
+        var i=0;
+        while(i<objCount){
+            list = readline().split(" ");
+            if(list.length >= 2){
+                Di[i] = parseInt(list[0]);
+                Pi[Di[i]] = parseInt(list[1]);
+                i++;
+            }
+        }
+        Di.sort(function(a,b){
+            return a-b;
+        })
+        for(let i=0;i < Di.length;i++) {
+            Pi[Di[i]] = i === 0 || Pi[Di[i]] >= Pi[Di[i - 1]] ? Pi[Di[i]] : Pi[Di[i - 1]];
+        }while(true){
+            list = readline().split('');
+            if(list.length === memberCount){
+                break;
+            }
+        }
+        for(let i=0;i<list.length;i++){
+            console.log(findMax(parseInt(list[i]),Di,Pi))
+        }
+
+        function findMax(item,Di,Pi){
+            let start = 0;
+            let end = Di.length-1;
+            while(start<=end){
+                let mid = parseInt((start+end)/2);
+                if(Di[mid]===item) {
+                    return Pi[Di[mid]];
+                } else if(Di[mid]>item){
+                    end = mid-1;
+                } else {
+                    start = mid+1;
+                }
+            }
+            if(start===0) {
+                return 0
+            } else {
+                return Pi[Di[start-1]];
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
