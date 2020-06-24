@@ -12,11 +12,11 @@ function mergeSort(arr){
 
 function merge(left,right){
     let result = [];
-    while(left.length&right.length){
-        if(left[0] > right[0]){
+    while(left.length && right.length){
+        if(left[0] <= right[0]){
             result.push(left.shift());
         }else{
-            result.push(left.shift());
+            result.push(right.shift());
         }
     }
 
