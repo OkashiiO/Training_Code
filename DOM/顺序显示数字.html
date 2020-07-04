@@ -11,6 +11,8 @@
 </div>
 <script>
     var container = document.getElementById('list');
+
+    //创建一个list，也可以自己手动html创建
     for (var i = 0; i < 100; i++) {
         var item = document.createElement('li');
         item.innerText = i;
@@ -19,12 +21,19 @@
         // })
         container.appendChild(item);
     }
+
+    //事件委托到container上，也就是ul
     container.addEventListener('click',function (e) {
         const target = e.target;
-        if(target.tagName == 'LI'){
-            alert(target.innerHTML);
-        }
 
+        //循环判断，在ul节点内，如果为li，执行并退出，否则寻找其父节点
+        while(target !== container){
+            if(target.tagName.toLowerCase() == 'li'){
+                console.log(target.innerHTML);
+                break;
+            }
+            target = target.parentNode;
+        }
     })
 </script>
 </body>
