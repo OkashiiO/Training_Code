@@ -10,11 +10,15 @@ function beibao(M,W,arrP,arrW){
     for(let i=0;i <=M; i++){
         result[i] = [];
         for(let j = 0; j <= W; j++){
+            //第一种边界情况：假设没有物品时
             if( i == 0 )
                 result[i][j] = 0;
+            //第二种边界情况： 物品体积大于j
             else if(arrW[i-1] > j)
                 result[i][j] = result[i-1][j];
+            
             else{
+                //不包含以上情况：设price为第i件物品的价值 + 除去第i件物品后剩余体积所能承载的价值
                 let price = arrP[i-1]+result[i-1][j - arrW[i-1]];
                 result[i][j] = Math.max(price,result[i-1][j]);
             }

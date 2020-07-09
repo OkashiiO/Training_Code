@@ -1,3 +1,16 @@
+//手写promise思路
+
+// 写一个Promise类，构造函数接受一个executor参数，
+// 在构造函数里面添加属性
+// status(状态pending、resolved、rejected)、
+// onResolvedCallBacks(存放成功回调的数组)、
+// onRejectedCallBacks（存放失败回调的数组）、
+// data（成功得到的数据），reason（失败的原因）。
+// 定义成功函数和失败函数，在对应的函数中判断status并给其他属性赋值。
+// 最后使用try catch立即执行函数executor，try中将成功函数和失败函数作为参数传入executor，catch中就直接reject。
+
+// 在类中添加then函数，接受成功回调和失败回调两个参数，利用setTimeout创建异步，
+// 如果then是一个Promise，则继续递归Promise，否则直接成功，如果捕捉到错误，就reject失败。
 const PENDING = "pending";
 const FULFILLED = "fulfilled";
 const REJECTED = "rejected";
