@@ -11,6 +11,8 @@
             position:relative;
             margin-bottom: 20px;
         }
+
+        /* 使用css3 transform */
         #center1{
             width:100px;
             height:100px;
@@ -20,6 +22,8 @@
             transform:translate(-50%,-50%);
             background-color: #F31264;
         }
+
+        /* 使用绝对定位，需要div定高宽 */
         #center2{
             width: 100px;
             height:100px;
@@ -29,6 +33,8 @@
             margin: -50px 0 0 -50px;
             background-color: #F31264;
         }
+
+        /* 使用绝对定位，不需要div定高宽 */
         #center3{
             position:absolute;
             width: 100px;
@@ -40,6 +46,8 @@
             right: 0;
             background-color: #F31264;
         }
+
+        /* 使用flex */
         #flexBox{
             display: flex;
             justify-content: center;
@@ -57,16 +65,16 @@
 </head>
 <body>
     <div class="box">
-        <div id="center1"></div>
+        <div id="center1">1</div>
     </div>
     <div class="box">
-        <div id="center2"></div>
+        <div id="center2">2</div>
     </div>
     <div class="box">
-        <div id="center3"></div>
+        <div id="center3">3</div>
     </div>
     <div id="flexBox">
-        <div id="center4"></div>
+        <div id="center4">4</div>
     </div>
 </body>
 </html>

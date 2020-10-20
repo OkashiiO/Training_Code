@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function throttle(func, delay = 1000){
+            let canRun = true;
+            return function(...args){
+                if(!canRun) return
+                canRun = false;
+                setTimeout(() => {
+                    func.apply(this,args);
+                    canRun = true;
+                },delay)
+            }
+        }
+
+        const task = () => {console.log('runtask')}
+        const throttleTask = throttle(task,1000);
+        window.addEventListener('click',throttleTask);
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
+
+
+
