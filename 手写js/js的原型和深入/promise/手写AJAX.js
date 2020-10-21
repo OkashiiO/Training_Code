@@ -1,11 +1,15 @@
-var request = new XMLHttpRequest();
-request.open('GET','url');
-request.onreadystatechange = function(){
-    if(request.readyState == 4){
-        console.log('请求完成');
-        if(request.response.status >= 200 && request.response.status < 300){
-            console.log('请求成功')
+function makeRequest(){
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function(){
+        if(httpRequest.readyState == XMLHttpRequest.DONE){
+            if(httpRequest.status == 200){
+                alert(httpRequest.responseText);
+            }else{
+                alert('请求出错');
+            }
         }
     }
+    httpRequest.open('GET','url');
+    httpRequest.send();
 }
-request.send();
+
