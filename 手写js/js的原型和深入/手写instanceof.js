@@ -1,16 +1,16 @@
-function isInstanceOf(instance, klass) {
-    let proto = instance.__proto__;
-    let prototype = klass.prototype;
-    while (true) {
-      if (proto === null) return false;
-      if (proto === prototype) return true;
-      proto = proto.__proto__;
+_instanceof(f, Foo);  
+
+function _instanceof(a, b) {
+    while(a){
+        if(a.__proto__ === b.prototype ) return true;
+        a = a.__proto__;
     }
-  }
+    return false;
+}
   
   // 测试
   class Parent {};
   class Child extends Parent {};
   const child = new Child();
 
-  console.log(isInstanceOf(child, Parent), isInstanceOf(child, Child), isInstanceOf(child, Array));  
+  console.log(_instanceof(child, Parent), _instanceof(child, Child), _instanceof(child, Array));  

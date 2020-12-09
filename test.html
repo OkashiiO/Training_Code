@@ -3,29 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script>
-        Function.prototype.myApply = function (context = globalThis) {
-    // 关键步骤，在 context 上调用方法，触发 this 绑定为 context，使用 Symbol 防止原有属性的覆盖
-    const key = Symbol('key')
-    context[key] = this
-    let res
-    if (arguments[1]) {
-        res = context[key](...arguments[1])
-    } else {
-        res = context[key]()
-    }
-    delete context[key]
-    return res
-}
-
-
-const me = { name: 'Jack' }
-function say() {
-console.log(`My name is ${this.name || 'default'}`);
-}
-say.myApply(me)
-    </script>
+    
+    <style>
+    </style>
 </head>
 <body>
+    <section>
+        
+        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
+    </section>
+    <script>
+        var sect = document.querySelector('section');
+        let para = document.createElement('p');
+        para.textContent = 'We hope you enjoyed the ride';
+        sect.appendChild(para);
+
+        var text = document.createTextNode(' — the premier source for web development knowledge.');
+        var linkPara = document.querySelector('p');
+        linkPara.appendChild(text);
+
+
+    </script>
 </body>
 </html>
