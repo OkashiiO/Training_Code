@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+    <style>
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Promise用例</h2>
+        <button id="btn">点击抽奖</button>
+    </div>
+    <script>
+        //随机数字生成函数
+        function rand(m,n){
+            return Math.ceil(Math.random() * (n-m)) + m;
+        }
+
+        
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click',function(){
+            const p = new Promise((resolve,reject)=>{
+                setTimeout(() =>{
+                    let n = rand(1,100);
+                    if(n < 30){
+                        resolve(n);//将promise对象的状态设置为【fulfilled】,并在resolve函数中传入值n
+                    }else{
+                        reject(n);//将promise对象的状态设置为【rejected】，并在reject函数中传入值n
+                    }
+                },1000);
+            })
+            p.then((value)=>{
+                alert('Winning:' + value)
+            }, (reason)=>{
+                alert('Lose:' + reason)
+            })
+        })
+
+        
+    </script>
+</body>
+</html>

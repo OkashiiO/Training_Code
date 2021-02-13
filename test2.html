@@ -4,37 +4,26 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        function myNew(Func,...args){
-    const obj = {};
+        Object.prototype.objCustom = function() {}; 
+        Array.prototype.arrCustom = function() {};
 
-        //将obj的原型指向构造函数，这样obj就可以访问到构造函数原型的属性
-    obj.__proto__ = Func.prototype;
-        //或下面这个
-        // if(Func.prototype){
-        //     Object.setPrototypeOf(obj,Func.prototype);
-        // }
-        //使用setPrototypeofge性能更好
+        let iterable = [3, 5, 7];
+        iterable.foo = 'hello';
 
-        //使用apply，改变构造函数的this指向到新建的对象，这样obj就可以通过this访问到构造函数中的属性
-    const res = Func.apply(obj,args);
+        for (let i in iterable) {
+        console.log(i); // logs 0, 1, 2, "foo", "arrCustom", "objCustom"
+        }
 
-        //判断构造函数的返回值是什么，
-        //如果是一个对象，则返回这个对象
-        //如果是其他的（字符串等），就该返回什么就返回什么   
-    return typeof res === 'object' ? res : obj;
+        for (let i in iterable) {
+        if (iterable.hasOwnProperty(i)) {
+            console.log(i); // logs 0, 1, 2, "foo"
+        }
+        }
 
-}
-
-function Person(name){
-    this.name = name;
-}
-
-Person.prototype.sayName = function(){
-    console.log('My name is ' + this.name);
-}
-const me = myNew(Person,'jack');
-me.sayName();
-console.log(me)
+        for (let i of iterable) {
+        console.log(i); // logs 3, 5, 7
+        }
+        console.log(iterable);
     </script>
 
 </head>
